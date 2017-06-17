@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Review;
 use App\Tag;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,8 +20,14 @@ class HomeController extends Controller
         $categories = Category::all();
         $reviews = Review::latest()->get();
         $subreviews = Review::latest()->whereIn('reviewer_id', [2,5,6])->get();
-        $tags = Tag::all();
-        return View('user.home',compact('reviews','categories','subreviews','tags'));
+        $tags = DB::table('review_tag')
+            ->select('tag_id')
+            ->groupBy('tag_id')
+            ->orderBy(DB::raw('count(tag_id)'), 'desc')
+            ->take(5)
+            ->get();
+
+        return view('user.home',compact('reviews','categories','subreviews','tags'));
     }
 
     /**

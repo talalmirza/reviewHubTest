@@ -28,7 +28,7 @@ Route::get ('/review' , function(){
 });
 
 
-Route::get ('profile' , function(){
+Route::get ('/profile' , function(){
 
 
     return view ('user.profile');
@@ -117,6 +117,14 @@ Route::post('/like', [
 
 Route::resource ('/review','ReviewController');
 
+
+Route::get ('/reviewerfollow',function(){
+
+
+    return view ('user.followingreviewer');
+
+
+});
 
 
 
