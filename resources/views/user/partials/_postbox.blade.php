@@ -3,6 +3,8 @@
     <div class="w3-container">
 
         <div class="w3-card-4" data-postid="{{ $review->id }}" >
+
+
             <div class="row" style="padding-left: 40px;padding-right: 40px;padding-bottom: 10px">
                 <header class="w3-container w3-white">
 
@@ -19,11 +21,14 @@
 
                 </header>
 
-                <div class="w3-container w3-white">
-                    <p>{{$review->caption}}</p>
-                    <img src="{{asset($review->featureimage)}}" class="media-object" style="width:70%; border-radius: 3px ;height:auto;">
+                <a href="/review/{{$review->id}}" style="text-decoration: none">
+                    <div class="w3-container w3-white">
+                        <p>{{$review->caption}}</p>
+                        <img src="{{asset($review->featureimage)}}" class="media-object" style="width:70%; border-radius: 3px ;height:auto;">
 
-                </div>
+                    </div>
+
+                </a>
 
                 <footer class="w3-container w3-white" style="padding-left:25px;padding-top: 20px">
                     <a class="like"><i class="fa fa-2x fa-thumbs-up">{{$review->likes->count()}}</i></a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -148,7 +148,8 @@ class ReviewController extends Controller
     public function show(Review $review)
     {
 
-        return view('user.reviewarticle',compact('review'));
+        $tags = Tag::all();
+        return view('user.reviewarticle',compact('review','tags'));
     }
 
 
