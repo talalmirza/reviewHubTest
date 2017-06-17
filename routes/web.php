@@ -126,8 +126,7 @@ Route::get ('/reviewerfollow',function(){
 
 });
 
-
-
+Route::get ('/search','SearchController@showSearch');
 
 
 ?>
