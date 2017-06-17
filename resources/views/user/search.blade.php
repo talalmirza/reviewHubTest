@@ -52,7 +52,7 @@ a#everything:hover{
                         <div id="home" class="tab-pane fade in active">
                             <div class="row">
                                 <div class="col-md-10 col-sm-10" style="margin-bottom: 30px;">
-                                    
+
 
                                     @foreach($reviews as $review)
 
