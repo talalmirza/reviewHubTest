@@ -35,70 +35,25 @@
 
         </header>
 
+
         <section class="content-section8 text-center">
             <div class="container">
 
                 <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <div class="single-content">
-                            <h3>Bootstrap</h3>
-                            <p>
-                                Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza 		Humza Humza Humza
-                            </p>
-                        </div>
+                    <div class="col-md-12 col-sm-12">
+                        @include('user.partials._landingpage_box')
+
+                        @include('user.partials._landingpage_box')
+
+                        @include('user.partials._landingpage_box')
+
+                        @include('user.partials._landingpage_box')
+
+                        @include('user.partials._landingpage_box')
+
+                        @include('user.partials._landingpage_box')
+
                     </div>
-
-
-                    <div class="col-md-4 col-sm-4">
-                        <div class="single-content">
-                            <h3>Bootstrap</h3>
-                            <p>
-                                Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4">
-
-                        <div class="single-content">
-                            <h3>Bootstrap</h3>
-                            <p>
-                                Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-
-                    <div class="col-md-4 col-sm-4">
-                        <div class="single-content">
-                            <h3>Bootstrap</h3>
-                            <p>
-                                Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza
-                            </p>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-4 col-sm-4">
-                        <div class="single-content">
-                            <h3>Bootstrap</h3>
-                            <p>
-                                Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4">
-                        <div class="single-content">
-                            <h3>Bootstrap</h3>
-                            <p>
-                                Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza Humza
-                            </p>
-                        </div>
-                    </div>
-
 
                 </div><!-- end row -->
 
