@@ -4,6 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
+
+use Session;
+use Purifier;
+use Image;
+
+
 
 class MemberProfileController extends Controller
 {
@@ -33,13 +42,62 @@ class MemberProfileController extends Controller
     {
 
         $member = Member::where('username','=',$username)->first();
-        
         return view ('user.profile', compact('member'));
 
     }
 
-    public function update(Request $request, Member $member)
+    public function update(Request $request, $username)
     {
+
+        $member = Member::where('username','=',$username)->first();
+
+        $member->first_name = $request->firstname;
+        $member->last_name = $request->lastname;
+        $member->email = $request->email;
+        $member->city = $request->city;
+        $member->region =$request->region;
+        $member->gender =$request->gender;
+            $member->contact_number=$request->contact;
+            $member->bio=$request->bio;
+
+        if(isset($request->password) && isset($request->retypepassword)){
+
+            if ($request->password == $request->retypepassword ){
+
+                $member->password = bcrypt($request->retypepassword);
+            }
+
+
+        }
+
+
+
+        if ($request->hasFile('imgInp')) {
+
+
+            $image      = $request->file('imgInp');
+            $fileName   = time() . '.' . $image->getClientOriginalExtension();
+
+            Storage::disk('local')->put($fileName, File::get($image));
+
+            $url = Storage::url($fileName);
+
+
+            $member->avatar=$url;
+
+        }
+
+
+
+        if($member->update()){
+
+            $message="Profile Updated";
+            return redirect()->back()->with($message);
+
+        }
+
+
+
 
     }
 

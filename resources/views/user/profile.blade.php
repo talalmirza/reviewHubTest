@@ -26,6 +26,7 @@
             display: block;
         }
 
+
         .form-group{
 
             padding-top: 5%;
@@ -53,49 +54,52 @@
             </div>
 
             <hr>
+
             <div class="row">
 
 
-                <!-- left column -->
-                <div class="col-md-3 ">
+                {{--<div class="alert alert-info alert-dismissable">--}}
+                {{--<a class="panel-close close" data-dismiss="alert">×</a>--}}
+                {{--<i class="fa fa-coffee"></i>--}}
+                {{--This is an <strong>.alert</strong>. Use this to show important messages to the user.--}}
+                {{--</div>--}}
 
-                    <div class="text-center"  style="margin-bottom: 10px;">
+                <br>
 
-                        <div class="form-group ">
-                            <a href="#"><img id='img-upload' src="{{$member->avatar}}" class="img-thumbnail"></a>
+                <form action="/profile/{{$member->username}}" enctype="multipart/form-data" method="POST">
+                    {{csrf_field()}}
 
-                        </div>
+                    <div class="row">
+                        <!-- left column -->
+                        <div class="col-md-3 ">
 
-                        <div class="input-group">
+                            <label>Select Profile Image</label>
+                            <div class="text-center"  style="margin-bottom: 10px;">
+
+                                <div class="form-group ">
+                                    <a href="#"><img id='img-upload' name='img-upload' class="image-thumbnail" src="{{ url ($member->avatar) }}" style="width:70%;height: auto;"></a>
+
+                                </div>
+
+                                <div class="input-group">
                             <span class="input-group-btn">
                                 <span class="btn btn-primary browse btn-file " style="border-radius: 12px;">
 
-                                      <i class="glyphicon glyphicon-search"></i> Browse <input type="file" id="imgInp">
+                                      <i class="glyphicon glyphicon-search"></i> Browse <input type="file" id="imgInp" name="imgInp" accept="image/*">
                                  </span>
                              </span>
+                                </div>
+
+
+
+                            </div>
+
+
                         </div>
 
 
-                    </div>
 
-
-                </div>
-
-
-                <!-- edit form column -->
-                <div class="col-md-8 personal-info col-md-offset-1">
-                    {{--<div class="alert alert-info alert-dismissable">--}}
-                        {{--<a class="panel-close close" data-dismiss="alert">×</a>--}}
-                        {{--<i class="fa fa-coffee"></i>--}}
-                        {{--This is an <strong>.alert</strong>. Use this to show important messages to the user.--}}
-                    {{--</div>--}}
-
-                    <br>
-
-                    <form action="">
-                        <div class="row">
-
-
+                        <div class="col-md-8 personal-info col-md-offset-1">
                             <div class="form-group">
                                 <label for="username">Username</label>
                                 <input disabled type="text" class="form-control" id="username" value="{{$member->username}}" name="username">
@@ -140,89 +144,85 @@
 
 
 
-                        </div>
-                        {{--End of form row1--}}
 
-                        {{--Start of form row2--}}
+
                         <div class="row">
 
-                            <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Select Region/Province</label>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Select Region/Province</label>
-
-                                        <select id="countrySelect" size="1" class="form-control" onclick="makeSubmenu(this.value)" name="region" >
-                                            <option value="{{$member->region}}">{{$member->region}}</option>
-                                            <option>Balochistan</option>
-                                            <option>Punjab</option>
-                                            <option>KhyberPakhtunkhawa</option>
-                                            <option>Sindh</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-
-                                    <div class="form-group">
-                                        <label>Select City</label>
-                                        <select id="citySelect" size="1" class="form-control" name="city" value="{{$member->city}}">
-                                            <option {{$member->city}}>{{$member->city}}</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="gender">Select Gender</label>
-
-                                <div class="form-control form-inline">
-
-                                    <input type="radio" id="gender" value="1" <?php echo ($member->gender==1)? 'checked':'' ?> name="gender">&nbsp;&nbsp;Male&nbsp;&nbsp;
-                                    <input type="radio" id="gender" value="0" <?php echo ($member->gender==0)? 'checked':'' ?> name="gender">&nbsp;&nbsp;Female
+                                    <select id="countrySelect" size="1" class="form-control" onclick="makeSubmenu(this.value)" name="region" >
+                                        <option value="{{$member->region}}">{{$member->region}}</option>
+                                        <option value="Balochistan">Balochistan</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="KhyberPakhtunkhawa">KhyberPakhtunkhawa</option>
+                                        <option value="Sindh">Sindh</option>
+                                    </select>
 
                                 </div>
-
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="bio">Tell us about your self</label>
-                                <textarea name="bio" class="form-control" rows="4">{{$member->bio}}</textarea>
-                            </div>
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label>Select City</label>
+                                    <select id="citySelect" size="1" class="form-control" name="city">
+                                        <option value="{{$member->city}}">{{$member->city}}</option>
+                                    </select>
+
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-
-                                        <label for="gender">Enter your Contact No.</label>
-                                        <input type="text" class="form-control" id="contact" name="contact" value="{{$member->contact_number}}">
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <br>
-                            <br>
-                            <div >
-                                <button type="submit" class="btn btn-block btn-primary"><b>Save Changes</b></button>
                             </div>
 
                         </div>
-                        {{--End of form row2--}}
 
-                    </form>
+                        <div class="form-group">
 
-                </div>
+                            <label for="gender">Select Gender</label>
+
+                            <div class="form-control form-inline">
+
+                                <input type="radio" id="gender" value="1" <?php echo ($member->gender==1)? 'checked':'' ?> name="gender">&nbsp;&nbsp;Male&nbsp;&nbsp;
+                                <input type="radio" id="gender" value="0" <?php echo ($member->gender==0)? 'checked':'' ?> name="gender">&nbsp;&nbsp;Female
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="bio">Tell us about your self</label>
+                                    <textarea name="bio" class="form-control" rows="4">{{$member->bio}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <label for="gender">Enter your Contact No.</label>
+                                    <input type="text" class="form-control" id="contact" name="contact" value="{{$member->contact_number}}">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <br>
+                        <br>
+
+                            <button type="submit" class="btn btn-block btn-primary"><b>Save Changes</b></button>
+
+
+                    </div>
+
+                    </div>
+                </form>
+
             </div>
         </div>
-        <hr>
+    </div>
+    <hr>
 
 
 
@@ -233,26 +233,56 @@
 
 
 @section('custom-script')
+
+    <script type="text/javascript">
+        var citiesByState = {
+
+            Balochistan: ["Quetta","Khuzdar","Turbat","Chaman","Hub","Sibi","Zhob","Gwadar","Dera Murad Jamali","Dera Allah Yar","Usta Mohammad","Loralai","Pasni","Kharan","Mastung","Nushki","Kalat"],
+            Punjab: ["AhmedNagerChatha","Attock","Bahawalnagar","Bahawalpur","Burewala","Chillianwala","Chakwal","Chichawatni","Chiniot","DeraGhaziKhan","Faisalabad","Gujranwala","Gujrat","Hafizabad","Jhelum","Kalabagh","KarorLalEsan","Kasur","Khanpur","Lahore","Mianwali","Multan","Muzaffargarh","Narowal","Okara","RahimYarKhan","Rawalpindi","Sadiqabad","Sahiwal","Sargodha","Shakargarh","Sheikhupura","Sialkot","Sohawav","Talagang","Taxila","obaTekSingh","Vehari","WahCantonment","Wazirabad"],
+            KhyberPakhtunkhawa:["Abbottabad","Adezai","Alpuri","Ayubia","Banda Daud Shah","Bannu","Batkhela","Battagram","Birote","Chakdara","Charsadda","Chitral","Daggar","Dargai","Darya Khan","Dera Ismail Khanv","Dir","Drosh","Hangu","Haripur","Karak","Kohat","Lakki Marwat","LatamberMadyan","Mansehra","Mardan","Mastuj","Mingora","Nowshera","Paharpur","Peshawar","Saidu Sharif","Swabi","Swat","Tangi","Tank","Thall","Timergara","Tordher"],
+            Sindh:["Badin","Bhirkan","Bhiria City","Bhiria Road","Rajo Khanani","Chak","Dadu","Digri","Diplo","Dokri","Ghotki","Haala","Hyderabad","Islamkot","Jacobabad","Jamshoro","Jungshahi","Kandhkot","Kandiaro","Karachi","Kashmore","Keti Bandar","Khadro","Khairpur","Khipro","Kotri","Larkana","Matiari","Mehar","Mirpur Khas","Mithani","Mithi","Mehrabpur","Moro","Nagarparkar","Naudero","Naushahro Feroze","Naushara","Nawabshah","Qambar","Qasimabad","Ranipur","RatoderovRohri","Sakrand","Sanghar","Shahbandar","Shahdadkot","Shahdadpur","Shahpur Chakar","Shikarpaur","Sinjhoro","Sukkur","Tangwani","Tando Adam Khan","Tando Allahyar","Tando Muhammad Khan","Thatta","Thari Mirwah","Umerkot","Warah"],
+        }
+        function makeSubmenu(value) {
+            if(value.length==0) document.getElementById("citySelect").innerHTML = "<option></option>";
+            else {
+                var citiesOptions = "";
+                for(cityId in citiesByState[value]) {
+                    citiesOptions+="<option value='"+citiesByState[value][cityId]+"'>"+citiesByState[value][cityId]+"</option>";
+                }
+                document.getElementById("citySelect").innerHTML = citiesOptions;
+            }
+        }
+        function displaySelected() {
+            var country = document.getElementById("countrySelect").value;
+            var city = document.getElementById("citySelect").value;
+            alert(country+"\n"+city);
+        }
+        function resetSelection() {
+            document.getElementById("countrySelect").selectedIndex = 0;
+            document.getElementById("citySelect").selectedIndex = 0;
+        }
+    </script>
+
     <script>
         $(document).ready( function() {
             $(document).on('change', '.btn-file :file', function() {
                 var input = $(this),
-                    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
                 input.trigger('fileselect', [label]);
             });
 
-            $('.btn-file :file').on('fileselect', function(event, label) {
-
-                var input = $(this).parents('.input-group').find(':text'),
-                    log = label;
-
-                if( input.length ) {
-                    input.val(log);
-                } else {
-                    if( log ) alert(log);
-                }
-
-            });
+//            $('.btn-file :file').on('fileselect', function(event, label) {
+//
+//                var input = $(this).parents('.input-group').find(':text'),
+//                        log = label;
+//
+//                if( input.length ) {
+//                    input.val(log);
+//                } else {
+//                    if( log ) alert(log);
+//                }
+//
+//            });
             function readURL(input) {
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
@@ -269,34 +299,6 @@
                 readURL(this);
             });
         });
-    </script>
-    <script type="text/javascript">
-        var citiesByState = {
-
-            Balochistan: ["Quetta","Khuzdar","Turbat","Chaman","Hub","Sibi","Zhob","Gwadar","Dera Murad Jamali","Dera Allah Yar","Usta Mohammad","Loralai","Pasni","Kharan","Mastung","Nushki","Kalat"],
-            Punjab: ["AhmedNagerChatha","Attock","Bahawalnagar","Bahawalpur","Burewala","Chillianwala","Chakwal","Chichawatni","Chiniot","DeraGhaziKhan","Faisalabad","Gujranwala","Gujrat","Hafizabad","Jhelum","Kalabagh","KarorLalEsan","Kasur","Khanpur","Lahore","Mianwali","Multan","Muzaffargarh","Narowal","Okara","RahimYarKhan","Rawalpindi","Sadiqabad","Sahiwal","Sargodha","Shakargarh","Sheikhupura","Sialkot","Sohawav","Talagang","Taxila","obaTekSingh","Vehari","WahCantonment","Wazirabad"],
-            KhyberPakhtunkhawa:["Abbottabad","Adezai","Alpuri","Ayubia","Banda Daud Shah","Bannu","Batkhela","Battagram","Birote","Chakdara","Charsadda","Chitral","Daggar","Dargai","Darya Khan","Dera Ismail Khanv","Dir","Drosh","Hangu","Haripur","Karak","Kohat","Lakki Marwat","LatamberMadyan","Mansehra","Mardan","Mastuj","Mingora","Nowshera","Paharpur","Peshawar","Saidu Sharif","Swabi","Swat","Tangi","Tank","Thall","Timergara","Tordher"],
-            Sindh:["Badin","Bhirkan","Bhiria City","Bhiria Road","Rajo Khanani","Chak","Dadu","Digri","Diplo","Dokri","Ghotki","Haala","Hyderabad","Islamkot","Jacobabad","Jamshoro","Jungshahi","Kandhkot","Kandiaro","Karachi","Kashmore","Keti Bandar","Khadro","Khairpur","Khipro","Kotri","Larkana","Matiari","Mehar","Mirpur Khas","Mithani","Mithi","Mehrabpur","Moro","Nagarparkar","Naudero","Naushahro Feroze","Naushara","Nawabshah","Qambar","Qasimabad","Ranipur","RatoderovRohri","Sakrand","Sanghar","Shahbandar","Shahdadkot","Shahdadpur","Shahpur Chakar","Shikarpaur","Sinjhoro","Sukkur","Tangwani","Tando Adam Khan","Tando Allahyar","Tando Muhammad Khan","Thatta","Thari Mirwah","Umerkot","Warah"],
-        }
-        function makeSubmenu(value) {
-            if(value.length==0) document.getElementById("citySelect").innerHTML = "<option></option>";
-            else {
-                var citiesOptions = "";
-                for(cityId in citiesByState[value]) {
-                    citiesOptions+="<option>"+citiesByState[value][cityId]+"</option>";
-                }
-                document.getElementById("citySelect").innerHTML = citiesOptions;
-            }
-        }
-        function displaySelected() {
-            var country = document.getElementById("countrySelect").value;
-            var city = document.getElementById("citySelect").value;
-            alert(country+"\n"+city);
-        }
-        function resetSelection() {
-            document.getElementById("countrySelect").selectedIndex = 0;
-            document.getElementById("citySelect").selectedIndex = 0;
-        }
     </script>
 
 @endsection

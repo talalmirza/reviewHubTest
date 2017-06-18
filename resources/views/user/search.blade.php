@@ -19,6 +19,8 @@
         }
 
         #card{box-shadow:0 6px 6px 0 rgba(0,0,0,0.80),0 6px 10px 0 rgba(0,0,0,0.80)}
+
+
         a#everything:hover{
             border-color: rgb(1, 1, 41);
             background-color:rgb(1, 1, 41);
