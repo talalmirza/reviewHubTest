@@ -53,7 +53,9 @@
 
     @yield ('custom-script')
 
+
     @include ('user.partials.footer')
+
 
 </body>
 

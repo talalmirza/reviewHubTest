@@ -2,6 +2,8 @@
 
     <div class="text-center">
 
+        <a href="/search/{{$category->name}}">
+
         <div class="w3-hover-shadow" style="padding-bottom: 5%; padding-top: 5%;">
             <img src="{{URL::asset('images/vectors/'.$category->vector)}}" class="img-rounded" >
 
@@ -10,5 +12,7 @@
                 <b>{{$category->name}}</b>
             </div>
         </div>
+
+        </a>
     </div>
 </div>

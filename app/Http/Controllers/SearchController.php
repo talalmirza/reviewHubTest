@@ -97,9 +97,26 @@ class SearchController extends Controller
 
         $categories = Category::where('name', 'like', '%'.$keyword.'%')->get();
 
-        $tags = Tag::where('name', 'like', '%'.$keyword.'%')->get();
+        $tags = Tag::with('reviews')->where('name', 'like', '%'.$keyword.'%')->get();
+
+
 
         return view ('user.search',compact('reviews','categories','tags','keyword'));
+
+
+    }
+
+
+    public function categorySearch($keyword){
+
+        $categories = Category::where('name', 'like', '%'.$keyword.'%')->get();
+
+        $categoriesid = Category::where('name', 'like', '%'.$keyword.'%')->pluck('id');
+
+        $reviews = Review::where('category_id', '=', $categoriesid)->get();
+
+
+        return view ('user.category_displayreviews',compact('reviews','categories','keyword'));
 
 
     }

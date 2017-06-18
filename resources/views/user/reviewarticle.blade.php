@@ -83,8 +83,11 @@
 
 
 
+
+                    <div style="margin-top: 10px">
                         @include('user.partials.tags')
 
+                    </div>
                     <hr>
 
                     <!-- Comment form -->
