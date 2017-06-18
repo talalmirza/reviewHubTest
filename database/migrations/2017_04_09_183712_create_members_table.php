@@ -24,6 +24,7 @@ class CreateMembersTable extends Migration
             $table->string('city');
             $table->string('region');
             $table->boolean('gender');
+            $table->string('contact_number')->nullable();
 
             $table->text('bio')->nullable();
 

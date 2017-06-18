@@ -28,14 +28,7 @@ Route::get ('/review' , function(){
 });
 
 
-Route::get ('/profile' , function(){
-
-
-    return view ('user.profile');
-
-
-});
-
+Route::get ('/profile/{username}', 'MemberProfileController@edit');
 
 
 Route::get ('dashboard' , function(){
