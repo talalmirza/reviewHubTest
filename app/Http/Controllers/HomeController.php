@@ -21,14 +21,14 @@ class HomeController extends Controller
         $reviews = Review::latest()->get();
         $subreviews = Review::latest()->whereIn('reviewer_id', [2,5,6])->get();
         $tags = Tag::all();
-        $tags_id = DB::table('review_tag')
-            ->select('tag_id')
-            ->groupBy('tag_id')
-            ->orderBy(DB::raw('count(tag_id)'), 'desc')
-            ->take(5)
-            ->get();
-
-        $tag_name= DB::table('tags')->select('name')->whereIn('id', $tags_id->toArray())->get();
+//        $tags_id = DB::table('review_tag')
+//            ->select('tag_id')
+//            ->groupBy('tag_id')
+//            ->orderBy(DB::raw('count(tag_id)'), 'desc')
+//            ->take(5)
+//            ->get();
+//
+//        $tag_name= DB::table('tags')->select('name')->whereIn('id', $tags_id->toArray())->get();
 
 
         return view('user.home',compact('reviews','categories','subreviews','tags'));
