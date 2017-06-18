@@ -61,11 +61,26 @@
                             <div class="row">
                                 <div class="col-md-10 col-sm-10" style="margin-bottom: 30px;">
 
+
+                                    @if (!isset($reviews) && !isset($categories) && !isset($tags))
+
+                                        <div class="alert alert-danger alert-dismissable">
+                                            <a class="panel-close close" data-dismiss="alert">×</a>
+
+                                            <strong>Ooops ! </strong>{{$message}}
+                                        </div>
+
+                                        @endif
+
+
+                                    @if (isset($reviews))
                                     @if($reviews->isEmpty())
 
-                                        <div class="alert alert-danger text-center" role="alert">
-                                            <strong>Oops</strong> No reviews were found for the searched keyword</a>.
-                                        </div>
+                                                <div class="alert alert-danger alert-dismissable">
+                                                    <a class="panel-close close" data-dismiss="alert">×</a>
+
+                                                    <strong>Ooops ! </strong>No reviews were found for the searched keyword
+                                                </div>
 
 
 
@@ -73,6 +88,8 @@
                                         @include ('user.partials.reviews')
 
                                     @endif
+
+                                        @endif
                                 </div>
 
 
@@ -81,6 +98,7 @@
                             </div>
 
 
+                            @if (isset($categories))
                             @if(!$categories->isEmpty())
 
                                 @if(!$reviews->isEmpty())
@@ -98,17 +116,19 @@
 
 
                             @endif
+                                @endif
 
                         </div>
 
                         <div id="posts" class="tab-pane fade in">
                             <div class="col-md-10 col-sm-10" style="margin-bottom: 30px;padding-left:0px;">
-
+                                @if (isset($reviews))
                                 @foreach($reviews as $review)
 
                                     @include('user.partials._postbox')
 
                                 @endforeach
+                                    @endif
 
                             </div>
                         </div>
@@ -117,7 +137,7 @@
                         <div id="tags" class="tab-pane fade in">
                             <div class="col-md-10 col-sm-10" style="margin-bottom: 30px;padding-left:0px;">
 
-
+                                @if (isset($tags))
                                 @foreach($tags as $tag)
 
                                     @foreach($tag->reviews as $review)
@@ -126,7 +146,7 @@
                                     @endforeach
                                 @endforeach
 
-
+@endif
 
                             </div>
                         </div>
@@ -141,3 +161,7 @@
 
 @endsection
 
+@section ('custom-script')
+
+
+    @endsection

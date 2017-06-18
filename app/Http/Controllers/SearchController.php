@@ -91,6 +91,13 @@ class SearchController extends Controller
 
         $keyword = Input::get('keyword');
 
+        if (is_null($keyword)){
+
+            $message = 'No results were found for the keyword';
+
+            return view ('user.search',compact('reviews','categories','tags','keyword','message'));
+
+        }
 
         $reviews = Review::where('title', 'like', '%'.$keyword.'%')->get();
 
