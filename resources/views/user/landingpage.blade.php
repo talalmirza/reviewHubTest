@@ -5,7 +5,64 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
-    @endsection
+    <style>
+
+        .btn{
+            text-transform:uppercase;
+            font-size:12px;
+            padding:0 1.5rem;
+            line-height:34px;
+            letter-spacing:1.2px;
+        }
+
+        .btn-outline {
+            border:1px solid rgba(70,60,100,0.5);
+            color:#737795;
+        }
+        .btn-outline:hover {
+            border:1px solid #5bc0de;
+            color:#46b8dc;
+        }
+
+        .btn-pill {
+            border-radius: 3rem!important;
+            padding:.5rem 1.5rem;
+            text-transform:uppercase;
+            font-size:12px;
+            padding:0 2rem;
+            line-height:34px;
+            letter-spacing:1.2px;
+        }
+
+
+        .btn-blue {
+            background-image: linear-gradient(45deg, #5bc0de 0%, #46b8dc 100%);
+            color:#fff;
+            border:1px solid rgba(255,255,255,0);
+            padding:0 1.5rem;
+            line-height:34px;
+            box-shadow: -5px 15px 30px rgba(91,192,222,0.5);
+
+        }
+        .btn-blue:hover,
+        .btn-blue:focus,
+        .btn-blue:active {
+            background-image: linear-gradient(-45deg, #5bc0de 0%, #46b8dc 100%);
+            color:#fff;
+            box-shadow: -0px 5px 10px rgba(91,192,222,0.5);
+        }
+
+        .btn-lg {
+            font-size: 20px;
+            line-height: 50px;
+            padding-left: 65px;
+            padding-right: 65px;
+        }
+
+    </style>
+
+
+@endsection
 
 @section ('content')
 
@@ -41,17 +98,12 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
-                        @include('user.partials._landingpage_box')
 
-                        @include('user.partials._landingpage_box')
+                        @foreach($reviews as $review)
 
-                        @include('user.partials._landingpage_box')
+                            @include('user.partials._landingpage_box')
 
-                        @include('user.partials._landingpage_box')
-
-                        @include('user.partials._landingpage_box')
-
-                        @include('user.partials._landingpage_box')
+                        @endforeach
 
                     </div>
 
@@ -67,53 +119,21 @@
 
         <section id="content-section1" class="content-section1">
             <div class="container">
-                <div class="row">
+                <div class="container" >
+                    <div class="row">
+                        @foreach($categories as $category)
 
-                    <div class="col-md-4">
-                        <div class="text-center single-content">
-                            <!-- Clip image with an oval -->
-                            <img src="images/vectors/256-256-d13cafbf17ecd8f2065c8842a6e4e228.png" alt="..." class="img-rounded">
+                            @include('user.partials._categorybadge')
 
-
-                            <h3>Food</h3>
-
-                        </div>
+                        @endforeach
+                    </div>
+                    <br>
+                    <div class="row">
+                        <a class="btn btn-blue btn-pill" style="float:right; text-transform: capitalize;" href="{{ url ('home#category_list') }}">More Categories</a>
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="text-center single-content">
-                            <!-- Clip image with an oval -->
-                            <img src="images/vectors/Movie alt 512x512.png" alt="..." class="img-rounded">
+                </div>
 
-
-                            <h3>Movies</h3>
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="text-center single-content">
-
-                            <br>
-                            <!-- Clip image with an oval -->
-                            <img src="images/vectors/desktop-computer-with-screen-vector-icon-800x566.png" alt="..." class="img-rounded">
-
-
-                            <h3>Computers & Hardwares</h3>
-
-
-
-                        </div>
-
-
-                    </div>
-
-
-
-
-                </div><!-- end row -->
-
-                <a href="{{ url ('home#category_list') }}" type="button" class="btn btn-info" style="float:right;">More Categories</a>
 
 
             </div><!-- end container -->
@@ -128,7 +148,9 @@
                         <div class="text-center"><h3 class="content-title">Join us</h3>
                             <h4>Do you have what it takes to be reviewer knight ?</h4>
                             <div class="text-center">
-                                <a href="{{ url ('reviewerapply') }}" class="btn btn-info button">Apply</a>
+                                <a href="{{ url ('reviewerapply') }}" style="text-transform: capitalize;" class="btn btn-outline btn-blue btn-pill btn-lg" >
+                                    Apply
+                                </a>
 
                             </div>
                         </div>

@@ -20,7 +20,7 @@ class HomeController extends Controller
         $categories = Category::all();
         $reviews = Review::latest()->get();
         $subreviews = Review::latest()->whereIn('reviewer_id', [2,5,6])->get();
-        $tags = Tag::all();
+        $tags = Tag::take(5)->get();
 //        $tags_id = DB::table('review_tag')
 //            ->select('tag_id')
 //            ->groupBy('tag_id')

@@ -18,6 +18,14 @@
 
         }
 
+
+         #username:hover{
+             color: darkgrey;
+             font-weight: bold;
+             text-decoration: none;
+         }
+
+
     </style>
 
     @endsection
@@ -50,13 +58,6 @@
                             &nbsp;|&nbsp;&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{$review->created_at->format('F j')}}
                         </p>
 
-                        <p style="color: darkgrey; display: inline-block;">
-                            <a href="#" id="username" style="text-decoration: none;"><i class="fa fa-at"></i>{{$review->reviewer->username}}</a>
-                            &nbsp;|&nbsp;&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{$review->created_at->format('F j')}}
-                        </p>
-
-
-                        {{--<p>Posted by <span class="glyphicon glyphicon-user"></span> <a href="#">{{ $review->reviewer->first_name . ' ' . $review->reviewer->last_name }}</a> on <span class="glyphicon glyphicon-time"></span> {{ $review->created_at->toFormattedDateString() }} in <span class="glyphicon glyphicon-book"></span> {{ $review->category->name }} </p>--}}
                     </div>
                 </div>
             </div>

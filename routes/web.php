@@ -1,10 +1,6 @@
 <?php
 
-Route::get('/', function(){
-
-    return view('user.landingpage');
-});
-
+Route::get('/', 'LandingpageController@index');
 
 Route::get ('/home' , 'HomeController@index');
 

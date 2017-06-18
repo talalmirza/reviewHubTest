@@ -1,3 +1,13 @@
+<style>
+
+    #username:hover{
+        color: darkgrey;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+</style>
+
 <div class="col-md-12 col-sm-12" style="padding-top: 30px;">
 
     <div class="w3-container">
@@ -12,13 +22,13 @@
                     </p>
 
                     <p style="color: darkgrey; display: inline-block;">
-                        <a href="#" id="username" style="text-decoration: none;"><i class="fa fa-at"></i>{{$review->reviewer->username}}</a>
+                        <a href="#" id="username"><i class="fa fa-at"></i>{{$review->reviewer->username}}</a>
                         &nbsp;|&nbsp;{{$review->created_at->format('F j')}}
                     </p>
 
                 </header>
 
-                <a href="/review/{{$review->id}}">
+                <a href="/review/{{$review->id}}" style="text-decoration: none">
 
                 <div class="w3-container w3-white">
                     <p>{{$review->caption}}</p>
