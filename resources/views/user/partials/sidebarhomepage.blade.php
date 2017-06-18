@@ -2,7 +2,7 @@
         <h4><strong>Trending</strong></h4>
 
         @foreach($tags as $tag)
-            <h4 id="tags"><span class="label label-default"><a href="#" style="text-decoration: none;">#{{$tag->name}}</a></span></h4>
+            <h4 id="tags"><span class="label label-default"><a href="#" style="text-decoration: none; font-weight: 500">#{{$tag->name}}</a></span></h4>
 
         @endforeach
 
