@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Member;
+use App\Reviewer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +15,7 @@ use Image;
 
 
 
-class MemberProfileController extends Controller
+class ReviewerProfileController extends Controller
 {
 
     public function index()
@@ -42,30 +42,30 @@ class MemberProfileController extends Controller
 
     {
 
-        $member = Member::where('username','=',$username)->first();
-        return view ('user.profile', compact('member'));
+        $reviewer = Reviewer::where('username','=',$username)->first();
+        return view ('admin.adminprofile', compact('reviewer'));
 
     }
 
     public function update(Request $request, $username)
     {
 
-        $member = Member::where('username','=',$username)->first();
+        $reviewer = Reviewer::where('username','=',$username)->first();
 
-        $member->first_name = $request->firstname;
-        $member->last_name = $request->lastname;
-        $member->email = $request->email;
-        $member->city = $request->city;
-        $member->region =$request->region;
-        $member->gender =$request->gender;
-            $member->contact_number=$request->contact;
-            $member->bio=$request->bio;
+        $reviewer->first_name = $request->firstname;
+        $reviewer->last_name = $request->lastname;
+        $reviewer->email = $request->email;
+        $reviewer->city = $request->city;
+        $reviewer->region =$request->region;
+        $reviewer->gender =$request->gender;
+            $reviewer->contact=$request->contact;
+            $reviewer->about=$request->bio;
 
         if(isset($request->password) && isset($request->retypepassword)){
 
             if ($request->password == $request->retypepassword ){
 
-                $member->password = bcrypt($request->retypepassword);
+                $reviewer->password = bcrypt($request->retypepassword);
             }
 
 
@@ -84,17 +84,17 @@ class MemberProfileController extends Controller
             $url = Storage::url($fileName);
 
 
-            $member->avatar=$url;
+            $reviewer->avatar=$url;
 
         }
 
 
 
-        if($member->update()){
+        if($reviewer->update()){
 
             $message="Profile Updated";
 
-            return view ('user.profile', compact('member','message'));
+            return view ('admin.adminprofile', compact('reviewer','message'));
 
         }
 
