@@ -120,7 +120,7 @@ Route::get ('/reviewerfollow',function(){
 });
 
 Route::get ('/search','SearchController@showSearch');
-
+Route::get ('/about','AboutController@showAbout');
 Route::get ('/search/{keyword}','SearchController@categorySearch');
 
 

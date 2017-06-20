@@ -1,4 +1,4 @@
-<footer class="foot_rh ">
+<footer class="foot_rh">
 
 
     <div class="container">
