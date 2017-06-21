@@ -44,13 +44,41 @@
     <br><br><br>
     <div class="container">
         <div class="row">
-            <div class="heading-font text-center col-md-12 col-sm-12"> <h1 style="color: grey;">Why we are here</h1> </div>
+            <div class="heading-font text-center col-md-12 col-sm-12"> <h1 style="color: grey;">The Story Behind Our Story</h1> </div>
         </div>
         <div class="row">
-            <div class="heading-font text-center col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1"> <h4 style="color: grey;"> To provide reviews of products according to Pakistani market.Reviews serve as luxury to
-                    people which eradicate the risk while buying the product with knowledge about it or by knowing
-                    the performance as well</h4> </div>
+            <div class="heading-font text-center col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+                <h4 style="color: grey;">In 2013, we met as graduate students at CIIT.<br>
+                    While Brian was helping venture-backed startups with their go-to-market strategy, we started to notice something:<br>
+                    <b>Customers had gotten really curious to know about the things they want.</b><br>
+                    So after many meetings, even more coffee, and the occasional hangouts we came to the simple observation:
+                    <br>People don’t want to be deceived by marketers or service providers through their
+                    bad Quality product or service. They want to be helped.
+                </h4>
+                <br> <br>
+                <h1 style="color: grey;"><b>SO..</b></h1>
+            </div>
         </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="heading-font text-center col-md-12 col-sm-12"> <h1 style="color: grey;">Why ReviewHub ?</h1> </div>
+        </div>
+        <div class="row">
+            <div class="heading-font text-center col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1"> <h4 style="color: grey;"> An idea in the moment has sparked a global movement.
+                    And we’re just getting started.<br>We provide reviews of products according to Pakistani market.Reviews serve as luxury to
+                    people which eradicate the risk while buying the product with knowledge about it or by knowing
+                    the performance as well</h4></div>
+        </div>
+    </div>
+    <br><br>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+        <hr style="border-top:5px solid lightslategrey">
+        </div>
+    </div>
     </div>
     <br><br><br>
 
