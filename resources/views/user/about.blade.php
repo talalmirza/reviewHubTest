@@ -15,10 +15,9 @@
     }
     .bgimg {
         
-        background-image: url('../images/new.jpg');
+        background-image: url('../images/new4.jpg');
         background-repeat: no-repeat;
-        background-position: center;
-        width: 102%;
+
         }
 
 </style>
@@ -26,7 +25,7 @@
 @section ('content')
     @include ('user.partials.navbar')
 
-    <div class="container-fluid bgimg"style="margin-left: -14px;">
+    <div class="container-fluid bgimg">
         <div class="container">
             <div class="row" style="margin-top: 12%">
                 <div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4">
@@ -49,7 +48,7 @@
         <div class="row">
             <div class="heading-font text-center col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
                 <h4 style="color: grey;">In 2013, we met as graduate students at CIIT.<br>
-                    While Brian was helping venture-backed startups with their go-to-market strategy, we started to notice something:<br>
+                    While Talal was working in software house (a startup) with their go-to-market strategy, we started to notice something:<br>
                     <b>Customers had gotten really curious to know about the things they want.</b><br>
                     So after many meetings, even more coffee, and the occasional hangouts we came to the simple observation:
                     <br>People don’t want to be deceived by marketers or service providers through their
